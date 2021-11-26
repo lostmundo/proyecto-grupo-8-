@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+.cuenta-contenedor-cuerpo {
+  background-color: black;
+}
+.page-cuenta-general {
+  height: 89vh;
+  width: 100%;
+}
+
+.cuerpo-cuenta {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 900px;
+  height: 550px;
+}
+
+/* parte Izquierda */
+
+.imag-cuenta {
+  width: 100%;
+  height: 550px;
+  border-radius: 9px;
+  background-size: cover;
+  background-position: center;
+}
+.imag-cuenta img {
+  width: 100%;
+  height: 540px;
+  border-radius: 9px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 5px 10px 8px #ffffff;
+}
+
+/* parte izquierda */
+.info-setion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.info-cuenta {
+  margin-top: 20px;
+  margin-right: 20px;
+  /* background-color: lightpink; */
+  width: 100%;
+  height: 500px;
+  border-right: 2px solid white;
+}
+.info-cuenta h1 {
+  font-size: 80px;
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeup 4s ease forwards;
+}
+.info-cuenta h3 {
+  font-size: 45px;
+  margin-top: 30px;
+  text-align: center;
+  animation: faderleft 4s ease forwards;
+}
+
+.info-cuenta p {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  font-size: 25px;
+  text-align: center;
+  animation: faderight 4s ease forwards;
+}
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes faderleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes faderight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+/* configuración de boton */
+
+.icono-cuenta-userOut {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 35px;
+}
+
+.boton-icono-cuenta {
+  background: transparent;
+  color: rgb(187, 11, 11);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid rgb(187, 11, 11);
+  transition: 0.5s ease-in;
+  margin-right: 17px;
+}
+.boton-icono-cuenta:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 4px rgb(187, 11, 11);
+  background: rgb(20, 124, 156, 0.151);
+}
+
+.icono-cuenta-usuarioIng {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.boton-icono-cuenta-formUserIng {
+  background: transparent;
+  color: rgb(70, 195, 223);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid rgb(70, 195, 223);
+  transition: 0.5s ease-in;
+}
+.boton-icono-cuenta-formUserIng:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 4px rgb(70, 195, 223);
+  background: rgb(20, 124, 156, 0.151);
+}
+
+.boton-icono-cuenta-editarUser {
+  background: transparent;
+  color: rgb(59, 226, 87);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid rgb(59, 226, 87);
+  transition: 0.5s ease-in;
+}
+
+.boton-icono-cuenta-editarUser:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 4px rgb(59, 226, 87);
+  background: rgb(20, 124, 156, 0.151);
+}
+
+/* estoy comentando esto */
+/* .info-cuenta i {
+  position: relative;
+  margin-top: 40px;
+  left: 300px;
+}
+
+.icono-cuenta-usuarioIng:hover {
+  color: rgb(199, 165, 26);
+}
+
+.icono-cuenta-usuario i {
+  position: relative;
+  margin-top: 80px;
+  left: 300px;
+  transition: 5s ease;
+}
+.icono-cuenta-usuario:hover {
+  box-shadow: 10px 4px 10px #f0f0f0;
+  color: rgb(182, 26, 26);
+} */
+
+/* cambio para icono de salida */
+/* .boton-icono-cuenta {
+  width: 50px;
+  min-height: 50px;
+  margin: 50px;
+  border-radius: 50%;
+  background-color: rosybrown;
+} */
+/* estoy comentando esto */
+/* .icono-cuenta-userOut i {
+  transform: 5s ease;
+}
+.icono-cuenta-userOut:hover {
+  box-shadow: 10px 10px 20px #f0f0f0;
+  color: rgb(13, 228, 145);
+} */
+
+/* formulario de ingeniero aqui empieza */
+
+.cuerpo-formulario-cuenta {
+  width: 900px;
+  height: auto;
+  background-color: black;
+  z-index: 1000;
+}
+.titulo-formulario-cuenta {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+/* modal */
+.modal-content-editar {
+  width: 900px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: seagreen;
+  color: white;
+}

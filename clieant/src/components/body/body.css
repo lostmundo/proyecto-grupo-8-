@@ -1,0 +1,205 @@
+.titulo {
+  font-size: 90px;
+  text-align: center;
+  margin: 30px 30px;
+}
+.parrafo {
+  font-size: 20px;
+  text-align: justify;
+  margin: 60px 60px;
+}
+
+/* Cartas */
+/* .contenedor-tipos {
+  background-color: yellow;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cuerpo {
+  background-color: bisque;
+  margin: 5px;
+} */
+.reparto {
+  background-color: black;
+  margin-bottom: 30px;
+}
+
+.card-ing {
+  border: rgb(0, 0, 0) 1px solid;
+  border-radius: 10px;
+  display: grid;
+  padding: 10px;
+  color: aliceblue;
+  transition: 1s ease;
+}
+.card-ing:hover {
+  color: aqua;
+  transform: translateX(20px);
+  animation-duration: 2s ease;
+}
+
+/* Sesion de carrusel  */
+
+.carrusel {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Cartas dentro del carrusel */
+.card-present-home {
+  width: 100%;
+  height: 90vh;
+}
+
+.card-body-home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.card-body-home h1 {
+  font-size: 80px;
+  color: azure;
+  margin: 0 0 10px;
+  animation: fadeLeft 2.5s ease forwards;
+}
+
+.card-body-home p {
+  font-size: 30px;
+  margin: 0;
+  color: azure;
+  animation: fadeRight 2.5s ease forwards;
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* sesion de presentacion */
+.person {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+/* Ultima parte del fade page */
+
+.proyectos {
+  margin: 20px 0 30px;
+}
+
+.proyecto {
+  height: 400px;
+  width: 100%;
+  background-image: url("../body/img/startup-g4425ae625_1920.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.proyecto h1 {
+  width: 100%;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+
+.proyecto p {
+  width: 100%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+.proyecto:hover .opacidad {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pages {
+  height: 400px;
+  width: 100%;
+  background-image: url("../body/img/art-g5eb24afa4_1920.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages h1 {
+  width: 100%;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+
+.pages p {
+  width: 100%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+.opacidad {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages:hover .opacidad {
+  background-color: rgba(0, 0, 0, 0.5);
+}
