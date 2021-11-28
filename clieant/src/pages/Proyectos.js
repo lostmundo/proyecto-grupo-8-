@@ -2,16 +2,36 @@ import Axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-// import Usuarios from "../components/proyectos/Usuarios";
-import img2 from "./img/man-gf43ea3826_1920.jpg";
+
 import "./proyectos.css";
 
 const Proyectos = () => {
   const [usuario, setusuario] = useState([]);
   const [role, setrole] = useState("ingeniero");
   const [buscarIng, setbuscarIng] = useState("");
+  const [userValidar, setuserValidar] = useState("");
 
-  const searchEngineer = async () => {};
+  const validarUsuario = () => {
+    const validar = sessionStorage.getItem("usuarioId");
+
+    if (validar) {
+      setuserValidar(validar);
+    }
+
+    if (!buscarIng) {
+      obtenerAll();
+    }
+  };
+
+  const searchEngineer = async (e) => {
+    e.preventDefault();
+    const res = await Axios.get("/searchEngineer/" + buscarIng);
+    const filtro = res.data.EngineerSearch;
+    if (filtro) {
+      setusuario([]);
+      setusuario(filtro);
+    }
+  };
 
   var toastMixin = Swal.mixin({
     toast: true,
@@ -51,11 +71,11 @@ const Proyectos = () => {
     // console.log(respuesta.data.engineerAll);
     setusuario(obtencion);
     // usuarios.push(respuesta.data);
-    console.log(usuario);
   };
   useEffect(() => {
+    validarUsuario();
     obtenerAll();
-  }, []);
+  }, [buscarIng]);
 
   return (
     <Fragment>
@@ -64,26 +84,36 @@ const Proyectos = () => {
           <Link to="/" className="navbar-brand me-auto">
             Proyectos
           </Link>
-          <form className="d-flex mx-4 w-25">
-            <input
-              className="form-control me-2 bg-black text-light rounded-pill"
-              type="search"
-              placeholder="&#xf002; Search"
-              style={{ fontFamily: "Arial, FontAwesome" }}
-              aria-label="Search"
-              onChange={(e) => setbuscarIng(e.target.value)}
-            />
-            <button className="boton-serach-proyect" type="submit">
-              Search
-            </button>
-          </form>
-          <button
-            className="singOut-navbar "
-            aria-current="page"
-            onClick={singOut}
-          >
-            <i className="fas fa-sign-out-alt"></i> Salir
-          </button>
+          {userValidar ? (
+            <>
+              <form className="d-flex mx-4 w-25">
+                <input
+                  className="form-control me-2 bg-black text-light rounded-pill"
+                  type="search"
+                  placeholder="&#xf002; Search"
+                  style={{ fontFamily: "Arial, FontAwesome" }}
+                  aria-label="Search"
+                  onChange={(e) => setbuscarIng(e.target.value)}
+                />
+                <button
+                  onClick={(e) => searchEngineer(e)}
+                  className="boton-serach-proyect"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+              <button
+                className="singOut-navbar "
+                aria-current="page"
+                onClick={singOut}
+              >
+                <i className="fas fa-sign-out-alt"></i> Salir
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </nav>
 
@@ -103,14 +133,24 @@ const Proyectos = () => {
                   <h1 className="card-title-proyectos">{item.firstname}</h1>
                   <h3 className="card-title-proyectos">{item.lastname}</h3>
                   <p className="card-text-proyectos">{item.introduccion}</p>
-                  <button
-                    className="btn btn-warning"
-                    type="button"
-                    onClick={(e) => irse(item._id)}
-                    to="/presentacion"
-                  >
-                    Más información
-                  </button>
+                  {userValidar ? (
+                    <button
+                      className="btn btn-warning"
+                      type="button"
+                      onClick={(e) => irse(item._id)}
+                      to="/presentacion"
+                    >
+                      Más información
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-warning"
+                      type="button"
+                      onClick={(e) => (window.location.href = "/login")}
+                    >
+                      Inicia Sesión
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

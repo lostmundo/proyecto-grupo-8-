@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import imag1 from "./R (4).jpg";
 import imag2 from "./img/book-ge75f2b3a5_1920.jpg";
 import imag3 from "./img/field-gb2700bab8_1920.jpg";
-import imag4 from "./img/flower-g024181276_1920.jpg";
+import imag4 from "./img/Elias.jpeg";
 
 import "./body.css";
 
@@ -18,7 +18,7 @@ function Body() {
   };
 
   const getengineer = async () => {
-    const res = await Axios.get("/engineer-all");
+    const res = await Axios.get("/engineer-all-homePage");
     const getRes = res.data.engineerAll;
     for (const elements of getRes) {
       setPrimerCarrusel((PrimerCarru) => [elements, ...PrimerCarru]);
@@ -66,16 +66,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("civil")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
-                    <div className="ico-header">
+                  <div className="card-head text-center">
+                    <div className="ico-header ">
                       <i className="fas fa-hard-hat fa-6x"></i>
                     </div>
                     <h1>Ingenieria Civil</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Rama de la ingeniería esta se ocupa del diseño y cálculo
                       de obras civiles
@@ -90,16 +90,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("minera")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-oil-can fa-6x"></i>
                     </div>
                     <h1>Ingenieria Mineral</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Rama de la ingeniería que se ocupa de la extracción de los
                       recursos minerales.
@@ -114,16 +114,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("quimica")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-atom fa-6x"></i>
                     </div>
                     <h1>Ingenieria Química</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       rama de la ingeniería que se encarga del estudio,
                       construcción y operación de todo tipo de elementos en la
@@ -139,16 +139,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("mecanica")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-wrench fa-6x"></i>
                     </div>
                     <h1>Ingenieria Mecánica</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Ramas más antiguas e importantes de la ingeniería, dicha
                       disciplina estudia y perfecciona los principios de la
@@ -163,16 +163,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("electronica")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-bolt fa-6x"></i>
                     </div>
                     <h1>Ingenieria Electrónica</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Ramas de la ingeniería que se encarga de resolver
                       problemas de la ingeniería tales como el control de
@@ -188,16 +188,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("industrial")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-industry fa-6x"></i>
                     </div>
                     <h1>Ingenieria Industrial</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Rama que se ocupa de la optimización de procesos, sistemas
                       u organizaciones complejos mediante el desarrollo, la
@@ -212,16 +212,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("sonido")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-guitar fa-6x"></i>
                     </div>
                     <h1>Ingenieria Sonido</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Rama encarga del estudio del fenómeno sonoro, en todos los
                       campos de aplicación del mismo, tales como la grabación
@@ -236,16 +236,16 @@ function Body() {
               className="col-sm-6 col-md-3"
               onClick={(e) => getProfession("nuclear")}
             >
-              <div className="card-ing">
+              <div className="card-ing d-flex">
                 <div className="efecto-card">
-                  <div className="card-head">
+                  <div className="card-head text-center">
                     <div className="ico-header">
                       <i className="fas fa-guitar fa-6x"></i>
                     </div>
                     <h1>Ingenieria Nuclear</h1>
                   </div>
 
-                  <div className="body">
+                  <div className="body text-center">
                     <p>
                       Rama encargada de la aplicación práctica de los
                       conocimientos sobre el núcleo atómico tratado por los
@@ -307,16 +307,16 @@ function Body() {
           <div className="card-body"></div>
         </div> */}
         <div className="container">
-          <div className="row">
-            <div className="col-sm-4">
+          <div className="row d-flex justify-content-center">
+            <div className="col-sm-12 col-md-6 col-lg-4">
               <div className="bg-white rounded shadow-sm py-5 px-4 text-center">
                 <img
                   src={imag2}
                   alt=""
-                  width="100"
+                  style={{ width: "320px", height: "400px" }}
                   className="img-fluid rounded-3 mb-3 img-thumbnail shadow-sm "
                 />
-                <h5 className="mb-0">Sebastián Mosquera Martínez</h5>
+                <h3 className="mb-0">Sebastián Mosquera Martínez</h3>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -348,15 +348,15 @@ function Body() {
               </div>
             </div>
 
-            <div className="col-sm-4">
+            <div className="col-sm-12 col-md-6 col-lg-4">
               <div className="bg-white rounded shadow-sm py-5 px-4 text-center">
                 <img
                   src={imag3}
                   alt=""
-                  width="100"
+                  style={{ width: "320px", height: "400px" }}
                   className="img-fluid rounded-3 mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Johandris ...</h5>
+                <h3 className="mb-0">Johandris ...</h3>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -388,15 +388,15 @@ function Body() {
               </div>
             </div>
 
-            <div className="col-sm-4">
+            <div className="col-sm-12 col-md-6 col-lg-4">
               <div className="bg-white rounded shadow-sm py-5 px-4 text-center">
                 <img
                   src={imag4}
                   alt=""
-                  width="100"
+                  style={{ width: "320px", height: "400px" }}
                   className="img-fluid rounded-3 mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Compañero que no sé el nombre</h5>
+                <h3 className="mb-0">Elias ...</h3>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>

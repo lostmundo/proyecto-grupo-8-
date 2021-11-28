@@ -5,7 +5,8 @@ import path from "path";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-const uri = "mongodb://localhost:27017/company";
+const uri =
+  "mongodb+srv://SebasDevp:sebas@engineertool.jhfom.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(uri, options).then(
   () => {

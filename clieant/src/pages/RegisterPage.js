@@ -13,6 +13,7 @@ export default function RegisterPage() {
   const [password, setpassword] = useState("");
   const [email, setemail] = useState("");
   const [role, setrole] = useState("regular");
+  const [creado, setcreado] = useState("false");
 
   const selectedHandler = (e) => {
     setFile(e.target.files[0]);
@@ -56,7 +57,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setFile(null);
 
-    const usuario = { firstname, lastname, password, email, img, role };
+    const usuario = { firstname, lastname, password, email, img, role, creado };
     const respuesta = await Axios.post("/new-user", usuario);
 
     if (respuesta.data.mensaje) {

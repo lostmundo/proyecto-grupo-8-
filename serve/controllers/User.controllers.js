@@ -79,8 +79,15 @@ UserCntrollers.UserApdate = async (req, res) => {
 
 UserCntrollers.engineerAll = async (req, res) => {
   try {
+    const engineerAll = await User.find({ creado: "true" });
+    res.json({ engineerAll });
+  } catch (error) {
+    console.log(error);
+  }
+};
+UserCntrollers.engineerAllhomePage = async (req, res) => {
+  try {
     const engineerAll = await User.find({ role: "ingeniero" });
-    console.log(engineerAll);
     res.json({ engineerAll });
   } catch (error) {
     console.log(error);
@@ -127,7 +134,10 @@ UserCntrollers.enginnerMenssId = async (req, res) => {
 UserCntrollers.engineersProfession = async (req, res) => {
   const ingenieria = req.params.id;
   try {
-    const ProfessionEngineer = await User.find({ ingenieria });
+    const ProfessionEngineer = await User.find({
+      ingenieria: ingenieria,
+      creado: "true",
+    });
     res.json({ ProfessionEngineer });
   } catch (error) {
     console.log(error);
@@ -145,7 +155,38 @@ UserCntrollers.UpdateInfoEspecial = async (req, res) => {
     res.json({ UpdateInfo });
     console.log(UpdateInfo);
   } catch (error) {
+    res.json({ mensaje: "sucedio un error en el email ya esta registrado" });
+  }
+};
+
+UserCntrollers.SearchEngineer = async (req, res) => {
+  const body = req.params.id;
+  try {
+    const EngineerSearch = await User.find({
+      creado: "true",
+      firstname: { $regex: ".*" + body + ".*", $options: "i" },
+    });
+
+    res.json({ EngineerSearch });
+    console.log(EngineerSearch);
+  } catch (error) {
     console.log(error);
   }
 };
+
+UserCntrollers.SearchProfessionEngineer = async (req, res) => {
+  const { filtroIng, buscarIng } = req.body;
+
+  try {
+    const ProfessionSearch = await User.find({
+      ingenieria: filtroIng,
+      creado: "true",
+      firstname: { $regex: ".*" + buscarIng + ".*", $options: "i" },
+    });
+    res.json({ ProfessionSearch });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default UserCntrollers;

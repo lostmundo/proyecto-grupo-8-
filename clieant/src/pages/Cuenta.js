@@ -18,9 +18,11 @@ const Cuenta = () => {
   const [experiencia, setexperiencia] = useState("");
   const [educacion, seteducacion] = useState("");
   const [profesion, setprofesion] = useState("");
-  const [creado, setcreado] = useState("false");
+  const [creado, setcreado] = useState("true");
   const [ingenieria, setingenieria] = useState("");
   const [perfil, setperfil] = useState("");
+  const [honorarios, sethonorarios] = useState("");
+  const [ubicacion, setubicacion] = useState("");
 
   // mantener y aparecer el formulario de usuario
   const [formIng, setformIng] = useState(false);
@@ -59,36 +61,43 @@ const Cuenta = () => {
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
+  // cambiar formularios abrir y cerrar
 
   // editar perfil de usuarios email y nombres || aquí pueden haber dos soluciones: forzar al usuario a salir, y voler a entrar o permitirle quedarse y subir los cambios
 
   const UserEdit = async (e) => {
     const edit = { firstname, id, email, lastname, contrasenna };
-    console.log(edit);
     const resEdit = await Axios.put("/UpdateInfoEspecial", edit);
-    const UpdateInfo = resEdit.data.UpdateInfo;
-    sessionStorage.setItem("firstname", UpdateInfo.firstname);
-    sessionStorage.setItem("lastname", UpdateInfo.lastname);
-    sessionStorage.setItem("role", UpdateInfo.role);
-    sessionStorage.setItem("email", UpdateInfo.email);
-    sessionStorage.setItem("img", UpdateInfo.img);
+    const UpdateInfo = resEdit.data;
 
-    setNombreuser(UpdateInfo.firstname);
-    setApellidouser(UpdateInfo.lastname);
-    setEmailuser(UpdateInfo.email);
+    if (UpdateInfo.mensaje) {
+      toastMixin.fire({
+        title: "Hubo un error intentalo de nuevo!!!",
+        icon: "error",
+      });
+      console.log(resEdit.data.mensaje);
+    } else {
+      const update = UpdateInfo.UpdateInfo;
+      sessionStorage.setItem("firstname", update.firstname);
+      sessionStorage.setItem("lastname", update.lastname);
+      sessionStorage.setItem("role", update.role);
+      sessionStorage.setItem("email", update.email);
+      sessionStorage.setItem("img", update.img);
 
-    if (UpdateInfo) {
+      setNombreuser(update.firstname);
+      setApellidouser(update.lastname);
+      setEmailuser(update.email);
+
       toastMixin.fire({
         title: "Usuario cambidado correctamente!!!",
         icon: "success",
       });
       document.getElementById("form-updatUser-info").reset();
-    } else {
-      toastMixin.fire({
-        title: "Hubo un error intentalo de nuevo!!!",
-        icon: "error",
-      });
     }
+
+    // if (UpdateInfo) {
+    // } else {
+    // }
   };
 
   const comprobarUsuario = (usuario) => {
@@ -108,8 +117,6 @@ const Cuenta = () => {
     sessionStorage.clear();
     window.location.replace("/");
   };
-
-  console.log(creado);
 
   // console.log(firstname);
   // console.log(usuario);
@@ -142,8 +149,6 @@ const Cuenta = () => {
   const userHold = async (e) => {
     e.preventDefault();
 
-    setcreado("true");
-
     const update = {
       id,
       telefono,
@@ -157,6 +162,8 @@ const Cuenta = () => {
       creado,
       perfil,
       ingenieria,
+      honorarios,
+      ubicacion,
     };
 
     const respuesta = await Axios.post("/updatUser", update);
@@ -286,7 +293,7 @@ const Cuenta = () => {
                         type="text"
                         required
                         style={{ height: "100px" }}
-                        placeholder="los idiomas que manejas:"
+                        placeholder="los idiomas que manejas: Frances: A2,  Italiano : B1 y Portugués C3."
                         onChange={(e) => setidiomas(e.target.value)}
                       />
                     </div>
@@ -297,7 +304,7 @@ const Cuenta = () => {
                         type="text"
                         required
                         style={{ height: "100px" }}
-                        placeholder="Describe las habilidades y fortalezas en una descripcion "
+                        placeholder="Describe las habilidades y fortalezas en una descripcion: Excelente nadador, Manejo de la presión y la cordura"
                         onChange={(e) => settalento(e.target.value)}
                       />
                     </div>
@@ -349,6 +356,26 @@ const Cuenta = () => {
                         onChange={(e) => setexperiencia(e.target.value)}
                       />
                     </div>
+                    <div className="from-group col-sm-6">
+                      <label>Honorarios</label>
+                      <input
+                        required
+                        className="form-control bg-dark border border-dark border-1 text-light "
+                        type="text"
+                        placeholder="Establce tus honorarios a partir de dolares o euros como referencia: 2.000 dólares por hora"
+                        onChange={(e) => sethonorarios(e.target.value)}
+                      />
+                    </div>
+                    <div className="from-group col-sm-6">
+                      <label>Ubicación</label>
+                      <input
+                        required
+                        className="form-control bg-dark border border-dark border-1 text-light "
+                        type="text"
+                        placeholder="Escribe tu domicilio"
+                        onChange={(e) => setubicacion(e.target.value)}
+                      />
+                    </div>
                     <div className="form-group col-sm-6 ">
                       <label> Campo Laboral</label>
                       <select
@@ -374,6 +401,7 @@ const Cuenta = () => {
                     <div className="from-group col-sm-6">
                       <label>Teléfono</label>
                       <input
+                        required
                         className="form-control bg-dark border border-dark border-1 text-light "
                         type="text"
                         placeholder="300..."
@@ -392,7 +420,7 @@ const Cuenta = () => {
                     </div>
                     <input
                       type="submit"
-                      className="btn btn-primary btn-block my-3 mx-md-5 col-sm-11 mx-sm-4"
+                      className="btn btn-light btn-block my-3 mx-md-5 col-sm-11 mx-sm-4"
                     />
                   </div>
                 </form>
@@ -549,7 +577,7 @@ const Cuenta = () => {
               </button>
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-light"
                 onClick={(e) => UserEdit()}
               >
                 Enviar

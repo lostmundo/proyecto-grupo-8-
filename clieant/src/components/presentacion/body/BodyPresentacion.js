@@ -7,6 +7,7 @@ const BodyPresentacion = ({ engi = [] }) => {
   const [mensaje, setmenss] = useState("");
   const [newMen, setnewMens] = useState([]);
   const [listarMensajes, setlistarMensajes] = useState(Array);
+  const [comentarios, setcomentarios] = useState(false);
 
   const usuario = sessionStorage.getItem("usuarioId");
   const firstname = sessionStorage.getItem("firstname");
@@ -17,7 +18,7 @@ const BodyPresentacion = ({ engi = [] }) => {
   const sendmens = async (e) => {
     e.preventDefault();
     const id = sessionStorage.getItem("SelectIngeniero");
-    const menss = { firstname, email, mensaje, id };
+    const menss = { firstname, lastname, email, mensaje, id, img };
     const respuesta = await Axios.post("/new-mensaje", menss);
     const Messmundo = respuesta.data.UserMenss;
     console.log(Messmundo);
@@ -41,6 +42,8 @@ const BodyPresentacion = ({ engi = [] }) => {
     // const obt = res.data.menssge;
     // setlistarMensajes([...listarMensajes, obt]);
     // console.log(listarMensajes);
+    document.getElementById("caja-comentarios").reset();
+    setmenss("");
   };
 
   //parece que esta es la única forma de realizar eso: buscar y hacer el respectivo llamado a la base de datos de la persona a la cual se le va dejar el mensaje, después de eso, se hace una especie de recorrido del objeto y se tiene que llenar el otro array de la funcion; por varias razones, L aprimera sería el hehco de que si uno intenta recorrerlo así sin más, pues, se te puede complicar mucho; ya que estamos hablando de un array dentro de otro array. Porque la información se obtiene de un campo array llamado mensajes, y eso, mi querido amigo, no sé puede quitar.
@@ -49,13 +52,12 @@ const BodyPresentacion = ({ engi = [] }) => {
     const id = sessionStorage.getItem("SelectIngeniero");
     const res = await Axios.get("/enginnerMenss/" + id);
     const obt = res.data.ListMessEng;
-
+    setnewMens([]);
     obt.mensajes.map((element) => {
       return setnewMens((listarMensajes) => [element, ...listarMensajes]);
     });
-  };
-  const generateKey = (index) => {
-    return `${index}_${new Date().getTime()}`;
+
+    setcomentarios(true);
   };
 
   // const listarMenss = async () => {
@@ -74,45 +76,153 @@ const BodyPresentacion = ({ engi = [] }) => {
   //   console.log(listarMensajes);
   // };
   useEffect(() => {
-    listarMenss();
+    const interval = setInterval(() => {
+      listarMenss();
+    }, 50000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <Fragment>
-      <div className="container">
-        <div className="cuerpo">
+      <div className="cuerpo-presentacion-engineer text-light">
+        <div className="container">
           {engi.map((item, index) => (
             <>
-              <div key={index} className="header">
-                <h1>
-                  {item.firstname} {item.lastname}
-                </h1>
-                <h3> {item.profesion}</h3>
+              <div className="presentacion-ingeniero-cuerpo">
+                <div className="row row-cols-sm-1 row-cols-md-2">
+                  <div className="col-md-12 col-lg-7">
+                    <section className="presentacion-cuerpo-derecho">
+                      <div className="row">
+                        <div className="col">
+                          <div className="hoja-presentacion-parteDerecha">
+                            <div className="col">
+                              <article className="perfil-engineer-presentacion">
+                                <h1>PERFIL</h1>
+                                <p>{item.perfil}</p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="experiencia-engineer-presentacion">
+                                <h1>EXPERIENCIA LABORAL</h1>
+                                <p>{item.experiencia}</p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="education-engineer-presentacion">
+                                <h3>EDUCACIÓN</h3>
+                                <p>{item.educacion}</p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="habiliades-engineer-presentacion">
+                                <h1>TALENTOS O HABILIDADES</h1>
+                                <p>{item.talento}</p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="referencia-engineer-presentacion">
+                                <h1>REFERENCIAS</h1>
+                                <p>{item.referencias}</p>
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div className="col-md-12 col-lg-5">
+                    <section className="presentacion-cuerpo-izquierdo">
+                      <div className="row">
+                        <div className="col">
+                          <div className="hoja-presentacion-parteIzquierda">
+                            <div className="col">
+                              <article className="hader-perfil-introduccion">
+                                <div className="Imagen-capa-presentacion">
+                                  <div className="container-fluid d-flex justify-content-center">
+                                    <img
+                                      src={"http://localhost:9000/" + item.img}
+                                      alt="imagen"
+                                      className="img-fluid"
+                                    ></img>
+                                  </div>
+                                </div>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="perfil-nombres-izquierda">
+                                <h1>
+                                  {item.firstname} {item.lastname}
+                                </h1>
+                                <p>{item.profesion}</p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="contacto-engineer-izquierdas">
+                                <h3>Contacto:</h3>
+                                <p>
+                                  <i className="fas fa-phone-alt fa-1x"></i>
+                                  Teléfono:{""}
+                                  {item.telefono}
+                                </p>
+                                <p>
+                                  <i className="fas fa-at"></i> Correo:{" "}
+                                  {item.email}
+                                </p>
+                                <p>
+                                  <i className="fas fa-map-marker-alt fa-1x"></i>{" "}
+                                  Ubicación: {item.ubicacion}
+                                </p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="honorarios-engineer-izquierda">
+                                <h3>Honararios: </h3>
+                                <p>
+                                  <i className="fas fa-dollar-sign fa-1x"></i>
+                                  {item.honorarios}
+                                </p>
+                              </article>
+                            </div>
+                            <div className="col">
+                              <article className="idiomas-engineer-izquierda">
+                                <h3>Idiomas: </h3>
+                                <p>
+                                  <i className="fas fa-language fa-1x"></i>
+                                  {item.idiomas}
+                                </p>
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
               </div>
-              <div className="body-page">
+              {/* <div className="body-page" key={index}>
                 <section className="inf-present">
                   <article>
                     <div className="title-artic">
-                      <h1>Aceerca de mi</h1>
+                      <h1>Acerca de mi</h1>
                     </div>
                     <div className="inf-artic">
-                      <p>{item.introduccion}</p>
+                      <p>{item.perfil}</p>
                     </div>
                   </article>
                   <article>
+                    <article>
+                      <div className="title-artic">
+                        <h1>Experencia Profesional</h1>
+                      </div>
+                      <div className="inf-artic">
+                        <p>{item.experiencia}</p>
+                      </div>
+                    </article>
                     <div className="title-artic">
                       <h1>Referencias</h1>
                     </div>
                     <div className="inf-artic">
                       <p>{item.referencias}</p>
-                    </div>
-                  </article>
-                  <article>
-                    <div className="title-artic">
-                      <h1>Experencia</h1>
-                    </div>
-                    <div className="inf-artic">
-                      <p>{item.experiencia}</p>
                     </div>
                   </article>
                   <article>
@@ -158,6 +268,14 @@ const BodyPresentacion = ({ engi = [] }) => {
                     </div>
                   </article>
                   <article>
+                    <div className="header-presentacion-engineer fs-5">
+                      <h1>
+                        {item.firstname} {item.lastname}
+                      </h1>
+                      <h3> {item.profesion}</h3>
+                    </div>
+                  </article>
+                  <article>
                     <div className="inf-sect-educ">
                       <ul>
                         <ol>educacion</ol>
@@ -187,81 +305,101 @@ const BodyPresentacion = ({ engi = [] }) => {
                     </div>
                   </article>
                 </section>
-              </div>
+              </div> */}
             </>
           ))}
-          <div className="commentarios">
-            <div className="card">
-              <div className="card-body">
-                <form onSubmit={sendmens}>
-                  <label> comentarios</label>
-                  <textarea
-                    type="text"
-                    className="form-control col-12"
-                    style={{ height: "100px" }}
-                    placeholder="comenta por favor tu experiencia"
-                    onChange={(e) => setmenss(e.target.value)}
-                  />
-                  <input
-                    type="submit"
-                    className="btn btn-primary btn-block mt-3"
-                  />
-                </form>
-                <button
-                  type="button"
-                  className="btn btn-dark mt-4"
-                  onClick={listarMenss}
-                >
-                  comentrios
-                </button>
-                {newMen.map((item, index) => (
-                  <div className="col" key={index}>
-                    <div className="card">
-                      <div className="imagen">
-                        <img
-                          src="!#"
-                          className="card-img-top"
-                          alt="..."
-                          style={{ height: "300px" }}
-                        />
+          {comentarios ? (
+            <>
+              <div className="commentarios-presentacion d-flex justify-content-center align-content-center">
+                <div className="card-comentarios-presentacion">
+                  <div className="card-body text-sm-start text-md-center ">
+                    <form onSubmit={sendmens} id="caja-comentarios">
+                      <label className="fs-1">COMENTARIOS</label>
+                      <textarea
+                        type="text"
+                        className="form-control col-12 bg-black border-1 text-light"
+                        style={{ height: "100px" }}
+                        placeholder="Comenta... "
+                        onChange={(e) => setmenss(e.target.value)}
+                      />
+                      <input
+                        type="submit"
+                        className="btn btn-primary btn-block mt-3"
+                      />
+                    </form>
+
+                    {newMen.map((item, index) => (
+                      <div className="col" key={index}>
+                        <div className="card-comentario">
+                          <div className="row row-cols-1">
+                            <div className="col-sm-12 col-lg-4">
+                              <div className="imagen-comentario-presentacion">
+                                <div className="container-fluid">
+                                  <img
+                                    src={"http://localhost:9000/" + item.img}
+                                    className="img-fluid"
+                                    alt="..."
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-sm-12 col-lg-8">
+                              <div className="card-body-comentarios">
+                                <h2 className="card-title">
+                                  {item.firstname} {item.lastname}
+                                </h2>
+                                <h6>{item.publicacion}</h6>
+                                <h4>{item.email}</h4>
+                                <p className="card-text">{item.mensaje}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="card-body">
-                        <h5 className="card-title">{item.firstname}</h5>
-                        <p className="card-text">{item.mensaje}</p>
-                      </div>
-                    </div>
+
+                      // <div className="prevent-comment mt-4">
+                      //   <div key={index} className="card mb-3">
+                      //     <div className="row g-0">
+                      //       <div className="col-md-4">
+                      //         <div className="imagen d-flex align-content-center justify-content-center">
+                      //           <div className="imag-body ">
+                      //             <img
+                      //               src={img}
+                      //               className="img-fluid rounded-circle w-100 h-100"
+                      //               alt="..."
+                      //             />
+                      //           </div>
+                      //         </div>
+                      //       </div>
+
+                      //       <div className="col-md-8">
+                      //         <div className="card-body">
+                      //           <div className="body-commet">
+                      //             <h5 className="card-title">{item.firstname}</h5>
+                      //             <p className="card-text">{item.mensaje}</p>
+                      //           </div>
+                      //         </div>
+                      //       </div>
+                      //     </div>
+                      //   </div>
+                      // </div>
+                    ))}
                   </div>
-
-                  // <div className="prevent-comment mt-4">
-                  //   <div key={index} className="card mb-3">
-                  //     <div className="row g-0">
-                  //       <div className="col-md-4">
-                  //         <div className="imagen d-flex align-content-center justify-content-center">
-                  //           <div className="imag-body ">
-                  //             <img
-                  //               src={img}
-                  //               className="img-fluid rounded-circle w-100 h-100"
-                  //               alt="..."
-                  //             />
-                  //           </div>
-                  //         </div>
-                  //       </div>
-
-                  //       <div className="col-md-8">
-                  //         <div className="card-body">
-                  //           <div className="body-commet">
-                  //             <h5 className="card-title">{item.firstname}</h5>
-                  //             <p className="card-text">{item.mensaje}</p>
-                  //           </div>
-                  //         </div>
-                  //       </div>
-                  //     </div>
-                  //   </div>
-                  // </div>
-                ))}
+                </div>
               </div>
+            </>
+          ) : (
+            <div className="sesion-comentarios text-center my-3">
+              <h1>COMENTARIOS</h1>
+              <button
+                type="button"
+                className="btn btn-dark mt-4"
+                onClick={listarMenss}
+              >
+                Ver y Comentar
+              </button>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </Fragment>

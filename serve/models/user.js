@@ -23,10 +23,12 @@ const UserSchema = new Schema({
   experiencia: { type: String },
   educacion: { type: String },
   profesion: { type: String },
-  creado: { type: String, default: "false" },
+  creado: { type: String },
   mensajes: { type: Array },
   ingenieria: { type: String },
   perfil: { type: String },
+  honorarios: { type: String },
+  ubicacion: { type: String },
 });
 
 UserSchema.pre("save", function (next) {

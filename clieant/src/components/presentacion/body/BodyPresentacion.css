@@ -3,17 +3,23 @@
   margin: 0;
   box-sizing: border-box;
 }
-.cuerpo {
+.cuerpo-presentacion-engineer {
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 
-.header {
+.header-presentacion-engineer {
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
-
+.header-presentacion-engineer h1 {
+  font-size: 80px;
+}
+.header-presentacion-engineer h3 {
+  font-size: 50px;
+}
 .body-page {
   display: flex;
   flex-direction: row;
@@ -65,9 +71,217 @@ img {
 }
 
 .imag-body {
+  margin-top: 50px;
   width: 100px;
   height: 100px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+/* Cuerpo de presentacion */
+.presentacion-ingeniero-cuerpo {
+  width: 100%;
+  height: auto;
+}
+.presentacion-cuerpo-derecho {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* para aplicar un margen a los en la informacion que esta adentro */
+.hoja-presentacion-parteDerecha {
+  margin: 60px;
+}
+/* primer articulos perfil */
+.perfil-engineer-presentacion h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+.perfil-engineer-presentacion p {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+/* experiencia laboral */
+.experiencia-engineer-presentacion h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+.experiencia-engineer-presentacion p {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+.habiliades-engineer-presentacion h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.habiliades-engineer-presentacion p {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+.referencia-engineer-presentacion h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+.habiliades-engineer-presentacion p {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+/* parte izquierda del cuerpo */
+
+.presentacion-cuerpo-izquierdo {
+  background-color: rgba(83, 184, 176, 255);
+  width: 100%;
+  height: 100%;
+}
+.hoja-presentacion-parteIzquierda {
+  width: 90%;
+  height: auto;
+  margin-left: 30px;
+}
+
+.hader-perfil-introduccion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* parte de imagen */
+.Imagen-capa-presentacion {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  border: none;
+  justify-content: center;
+}
+.Imagen-capa-presentacion img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-left: 20px;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+/* parte de los nombres */
+.perfil-nombres-izquierda {
+  margin: 20px 15px 15px 30px;
+  text-align: center;
+}
+.perfil-nombres-izquierda h1 {
+  font-weight: 800;
+}
+.perfil-nombres-izquierda p {
+  font-size: 30px;
+  /* background-color: rgb(12, 29, 33); */
+  color: rgb(12, 29, 33);
+}
+/* parte de los contactos */
+
+.contacto-engineer-izquierdas {
+  margin: 20px 15px 15px 30px;
+}
+.contacto-engineer-izquierdas h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: rgb(12, 29, 33);
+}
+.contacto-engineer-izquierdas p {
+  margin-left: 30px;
+  font-size: 20px;
+}
+.honorarios-engineer-izquierda {
+  margin: 20px 15px 15px 30px;
+}
+.honorarios-engineer-izquierda h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: rgb(12, 29, 33);
+}
+.honorarios-engineer-izquierda p {
+  margin-left: 30px;
+  font-size: 20px;
+}
+.idiomas-engineer-izquierda {
+  margin: 20px 15px 15px 30px;
+}
+.idiomas-engineer-izquierda h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: rgb(12, 29, 33);
+}
+.idiomas-engineer-izquierda p {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+/* Comentarios sesion */
+
+.commentarios-presentacion {
+  width: 100%;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+}
+.card-comentarios-presentacion {
+  width: 95%;
+  height: auto;
+}
+.card-comentario {
+  border-radius: 40px;
+  margin: 40px 10px 10px 10px;
+  width: 100%;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+  transition: 2s ease-out;
+}
+.imagen-comentario-presentacion {
+  margin-left: 30px;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.imagen-comentario-presentacion img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  position: relative;
+}
+.card-body-comentarios {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+}
+@media screen and (min-width: 1019px) {
+  .card-body-comentarios {
+    border-left: 2px solid rgb(255, 255, 255);
+  }
+}
+@media screen and (max-width: 1019px) {
+  .imagen-comentario-presentacion .card-body-comentarios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.card-body-comentarios h2 {
+  font-weight: 1000;
+}
+.card-body-comentarios h4 {
+  margin-bottom: 15px;
+}
+
+.card-comentario:hover {
+  border: 3px solid rgb(130, 9, 9);
+  padding: 2px;
+  box-shadow: 1px 1px 40px 8px crimson;
 }

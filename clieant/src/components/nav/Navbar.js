@@ -34,12 +34,17 @@ const Navbar = ({ isScroll }) => {
       <ModalNavbar estado={isOpen} cambiar={setOpen} /> */}
 
       <nav
-        className="navbar fixed-top navbar-expand-sm navbar-dark w-100"
-        style={{ backgroundColor: "black", color: "white" }}
+        className="navbar fixed-top navbar-expand-sm navbar-dark "
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          margin: "0px",
+          padding: "0px",
+        }}
       >
         <div className="container ">
           <a className="navbar-brand" href="/">
-            Menú
+            Home
           </a>
         </div>
         <button

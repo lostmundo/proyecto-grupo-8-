@@ -183,10 +183,16 @@ router.post("/auth-user", UserCntrollers.LoginUser);
 router.get("/users/:id", UserCntrollers.userId);
 router.post("/updatUser", UserCntrollers.UserApdate);
 router.get("/engineer-all", UserCntrollers.engineerAll);
+router.get("/engineer-all-homePage", UserCntrollers.engineerAllhomePage);
 router.get("/engineer/:id", UserCntrollers.engineerId);
 router.post("/enginnerMenss", UserCntrollers.enginnerMenss);
 router.get("/enginnerMenss/:id", UserCntrollers.enginnerMenssId);
 router.get("/enginnerProfession/:id", UserCntrollers.engineersProfession);
 router.put("/UpdateInfoEspecial", UserCntrollers.UpdateInfoEspecial);
+router.get("/searchEngineer/:id", UserCntrollers.SearchEngineer);
+router.post(
+  "/searchProfessionEngineer",
+  UserCntrollers.SearchProfessionEngineer
+);
 
 module.exports = router;

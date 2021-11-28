@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 const FiltroProyectos = () => {
   const [nombreInge, setnombreInge] = useState([]);
   const [ingenieros, setingenieros] = useState([]);
+  const [userValidar, setuserValidar] = useState("");
+  const [buscarIng, setbuscarIngProf] = useState("");
 
   var toastMixin = Swal.mixin({
     toast: true,
@@ -22,9 +24,23 @@ const FiltroProyectos = () => {
     },
   });
 
+  const validarUsuario = () => {
+    const validar = sessionStorage.getItem("usuarioId");
+
+    if (validar) {
+      setuserValidar(validar);
+    }
+
+    if (!buscarIng) {
+      obtenerIngenieros();
+    }
+  };
   useEffect(() => {
+    validarUsuario();
     obtenerIngenieros();
-  }, []);
+  }, [buscarIng]);
+
+  // irse a presentación
   const irse = (id) => {
     if (id) {
       console.log(id);
@@ -32,6 +48,8 @@ const FiltroProyectos = () => {
       window.location.href = "/presentacion";
     }
   };
+
+  // salir sesion
 
   const singOut = () => {
     toastMixin.fire({
@@ -48,9 +66,25 @@ const FiltroProyectos = () => {
     // const profesion = { ingenieria: filtroIng };
     const respuesta = await Axios.get("/enginnerProfession/" + filtroIng);
     const engineers = respuesta.data.ProfessionEngineer;
-    console.log(engineers);
-    for (const elementos of engineers) {
-      setingenieros((ingenieros) => [elementos, ...ingenieros]);
+    setingenieros(engineers);
+    // console.log(engineers);
+    // for (const elementos of engineers) {
+    //   setingenieros((ingenieros) => [elementos, ...ingenieros]);
+    // }
+  };
+  // obtener filtro de ingenieros
+
+  const searchEngineer = async (e) => {
+    e.preventDefault();
+    const filtroIng = sessionStorage.getItem("filtroProfesion");
+
+    const envioInfo = { filtroIng, buscarIng };
+
+    const res = await Axios.post("/searchProfessionEngineer", envioInfo);
+    const filtroSearch = res.data.ProfessionSearch;
+    if (filtroSearch) {
+      setingenieros([]);
+      setingenieros(filtroSearch);
     }
   };
 
@@ -61,13 +95,36 @@ const FiltroProyectos = () => {
           <Link to="/" className="navbar-brand">
             {"Ingeniera " + nombreInge}
           </Link>
-          <button
-            className="singOut-navbar"
-            aria-current="page"
-            onClick={singOut}
-          >
-            <i className="fas fa-sign-out-alt"></i> Salir
-          </button>
+          {userValidar ? (
+            <>
+              <form className="d-flex mx-4 w-25">
+                <input
+                  className="form-control me-2 bg-black text-light rounded-pill"
+                  type="search"
+                  placeholder="&#xf002; Search"
+                  style={{ fontFamily: "Arial, FontAwesome" }}
+                  aria-label="Search"
+                  onChange={(e) => setbuscarIngProf(e.target.value)}
+                />
+                <button
+                  onClick={(e) => searchEngineer(e)}
+                  className="boton-serach-proyect"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+              <button
+                className="singOut-navbar"
+                aria-current="page"
+                onClick={singOut}
+              >
+                <i className="fas fa-sign-out-alt"></i> Salir
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </nav>
 
@@ -86,14 +143,24 @@ const FiltroProyectos = () => {
                 <div className="card-body-proyectos">
                   <h1 className="card-title-proyectos">{item.firstname}</h1>
                   <p className="card-text-proyectos">{item.introduccion}</p>
-                  <button
-                    className="btn btn-warning"
-                    type="button"
-                    onClick={(e) => irse(item._id)}
-                    to="/presentacion"
-                  >
-                    Más información
-                  </button>
+                  {userValidar ? (
+                    <button
+                      className="btn btn-warning"
+                      type="button"
+                      onClick={(e) => irse(item._id)}
+                      to="/presentacion"
+                    >
+                      Más información
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-warning"
+                      type="button"
+                      onClick={(e) => (window.location.href = "/login")}
+                    >
+                      Inicia Sesión
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

@@ -44,6 +44,12 @@
   align-items: center;
   background-color: black;
 }
+@media screen and (max-width: 652px) {
+  .info-setion {
+    height: auto;
+    padding-bottom: 30px;
+  }
+}
 
 .info-cuenta {
   margin-top: 20px;
