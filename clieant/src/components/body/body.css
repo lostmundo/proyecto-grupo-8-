@@ -1,14 +1,30 @@
 .titulo {
   font-size: 90px;
   text-align: center;
-  margin: 30px 30px;
+  margin: 20px 20px;
+}
+
+.titulo-parrafo-homePage {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 35px;
 }
 .parrafo {
   font-size: 20px;
   text-align: justify;
-  margin: 60px 60px;
+  margin: 10px 0px 60px 20px;
 }
 
+.parrafo ul {
+  list-style-type: none;
+  margin-left: -4px;
+  padding: 0 0 0 0;
+}
+.titulo-ditribucion {
+  font-size: 60px;
+  margin: 10px 0px 0px 20px;
+}
 /* Cartas */
 /* .contenedor-tipos {
   background-color: yellow;

@@ -82,22 +82,19 @@
 .boton-serach-proyect {
   margin-left: 10px;
   background: transparent;
-  color: rgb(121, 107, 107);
+  color: #8b8b8b;
   width: 60px;
-  height: 30px;
+  height: 40px;
   margin-top: 6px;
   outline: none;
   border-radius: 30px;
-  border: none;
+  border: 1px solid transparent;
   transition: 0.5s ease-in;
   text-align: center;
 }
 .boton-serach-proyect:hover {
   cursor: pointer;
   text-align: center;
-  font-size: 20px;
-  width: 90px;
-  height: 40px;
   border-radius: 10px;
   border: 1px solid rgb(26, 135, 35);
   box-shadow: 0px 0px 6px 2px rgb(26, 135, 35);

@@ -33,7 +33,7 @@ const Presentacion = () => {
   const singOut = () => {
     toastMixin.fire({
       animation: true,
-      title: "Signed in Successfully",
+      title: "Saliendo de Sesión",
     });
     sessionStorage.clear();
     window.location.replace("/");
@@ -46,7 +46,7 @@ const Presentacion = () => {
   return (
     <Fragment>
       <nav className="navbar navbar-dark " style={{ backgroundColor: "black" }}>
-        <div className="container">
+        <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             Presentacion
           </Link>

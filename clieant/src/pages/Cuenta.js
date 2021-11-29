@@ -189,9 +189,9 @@ const Cuenta = () => {
   return (
     <Fragment>
       <nav className="navbar navbar-dark" style={{ backgroundColor: "black" }}>
-        <div className="container">
+        <div className="container-fluid">
           <Link to="/" className="navbar-brand">
-            cuenta
+            Home
           </Link>
         </div>
       </nav>
@@ -264,7 +264,7 @@ const Cuenta = () => {
                 <form onSubmit={userHold} id="info-cuenta-ingeniero">
                   <div className="row d-flex justify-content-start text-light text-center fs-3 align-content-center">
                     <div className="from-group">
-                      <label>Introduccion</label>
+                      <label>Introducción</label>
                       <textarea
                         className="form-control col-12 my-2 bg-dark border border-dark border-1 text-light"
                         type="text"

@@ -78,7 +78,7 @@ const BodyPresentacion = ({ engi = [] }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       listarMenss();
-    }, 50000);
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 

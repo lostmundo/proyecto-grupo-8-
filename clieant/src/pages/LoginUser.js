@@ -8,6 +8,22 @@ const LoginUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // aquí es para las alertas
+  var toastMixin = Swal.mixin({
+    toast: true,
+    icon: "success",
+    title: "General Title",
+    animation: false,
+    position: "top-right",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   const userLogin = async (e) => {
     e.preventDefault();
     const user = { email, password };
@@ -16,16 +32,23 @@ const LoginUser = () => {
 
     if (resMen) {
       Swal.fire({
+        toast: true,
         icon: "error",
-        title: "Error",
-        text: `${resMen}`,
+        title: `${resMen} !!!`,
+        animation: false,
+        position: "bottom",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
       });
     } else {
-      Swal.fire({
-        icon: "success",
-        title: "Exito",
-        text: "bienvenido",
-        timer: 2000,
+      toastMixin.fire({
+        animation: true,
+        title: "Bienvenido",
       });
 
       sessionStorage.setItem("usuarioId", respuesta.data.id);
@@ -119,7 +142,7 @@ const LoginUser = () => {
                             />
                           </div>
                           <button type="submit" className="boton-login mt-2">
-                            Login
+                            <span>Login</span>
                           </button>
                           <p className=" fs-6 text-light">
                             No te has registrado, que estas esperando{" "}

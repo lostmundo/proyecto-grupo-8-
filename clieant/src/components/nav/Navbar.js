@@ -38,11 +38,9 @@ const Navbar = ({ isScroll }) => {
         style={{
           backgroundColor: "black",
           color: "white",
-          margin: "0px",
-          padding: "0px",
         }}
       >
-        <div className="container ">
+        <div className="container-fluid ">
           <a className="navbar-brand" href="/">
             Home
           </a>
@@ -51,28 +49,24 @@ const Navbar = ({ isScroll }) => {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon "></span>
         </button>
         {usuarioconect ? (
-          <div className="collapse navbar-collapse" id="navbarText ">
-            <ul className="navbar-nav ms-auto mb-5 mb-lg-1 ">
+          <div className="collapse navbar-collapse" id="navbarScroll">
+            <ul className="navbar-nav ms-auto mb-0 mb-lg-1 justify-content-center align-content-center">
               <li className="nav-item ">
-                <La
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/cuenta"
-                >
+                <La className="nav-link  " aria-current="page" to="/cuenta">
                   Cuenta
                 </La>
               </li>
               <li className="nav-item">
                 <La className="nav-link" aria-current="page" to="/proyectos">
-                  Proyectos
+                  Perfiles
                 </La>
               </li>
               <li className="nav-item">
@@ -87,16 +81,16 @@ const Navbar = ({ isScroll }) => {
             </ul>
           </div>
         ) : (
-          <div className="collapse navbar-collapse" id="navbarText ">
+          <div className="collapse navbar-collapse " id="navbarScroll">
             <ul className="navbar-nav ms-auto mb-5 mb-lg-1 ">
               <li className="nav-item ">
-                <La className="nav-link active" aria-current="page" to="/login">
+                <La className="nav-link" aria-current="page" to="/login">
                   Login
                 </La>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 <La className="nav-link" aria-current="page" to="/proyectos">
-                  Proyectos
+                  Perfiles
                 </La>
               </li>
             </ul>

@@ -27,7 +27,8 @@ UserCntrollers.LoginUser = async (req, res) => {
     const LoginUser = await User.findOne({ email: email });
     if (!LoginUser) {
       return res.json({
-        mensaje: "error en el correo, por favor intentelo de nuevo",
+        mensaje:
+          "error en el correo o en la contraseña, por favor intentelo de nuevo",
       });
     } else {
       const validarpassport = await bcrypt.compare(
@@ -87,8 +88,8 @@ UserCntrollers.engineerAll = async (req, res) => {
 };
 UserCntrollers.engineerAllhomePage = async (req, res) => {
   try {
-    const engineerAll = await User.find({ role: "ingeniero" });
-    res.json({ engineerAll });
+    const engineerHome = await User.find({ role: "ingeniero" });
+    res.json({ engineerHome });
   } catch (error) {
     console.log(error);
   }

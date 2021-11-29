@@ -1,8 +1,8 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import imag1 from "./R (4).jpg";
+import imag1 from "./img/logo.jpg";
 import imag2 from "./img/book-ge75f2b3a5_1920.jpg";
-import imag3 from "./img/field-gb2700bab8_1920.jpg";
+import imag3 from "./img/WhatsApp Image 2021-11-29 at 11.00.56 AM.jpeg";
 import imag4 from "./img/Elias.jpeg";
 
 import "./body.css";
@@ -19,7 +19,7 @@ function Body() {
 
   const getengineer = async () => {
     const res = await Axios.get("/engineer-all-homePage");
-    const getRes = res.data.engineerAll;
+    const getRes = res.data.engineerHome;
     for (const elements of getRes) {
       setPrimerCarrusel((PrimerCarru) => [elements, ...PrimerCarru]);
       console.log(PrimerCarru);
@@ -47,20 +47,53 @@ function Body() {
   return (
     <div className="" id="body-container">
       <h1 className="titulo">QUIENES SOMOS</h1>
-      <p className="parrafo">
-        hola mundo Como JSX se compila en llamadas a React.createElement, la
-        bibliotecaReact también debe estar siempre dentro del alcance de tu
-        código JSX. Por ejemplo, ambas importaciones son necesarias en este
-        código, a pesar de que React y CustomButton no están directamente
-        referenciados desde JavaScript: Al contrario del pensamiento popular, el
-        texto de Lorem Ipsum no es simplemente texto aleatorio.
-      </p>
+      <div className="row">
+        <div className="col-md-6">
+          <h4 className="titulo-parrafo-homePage">Introducción</h4>
+          <p className="parrafo">
+            Somos una pagina sin ánimo de lucro, de carácter académico,
+            científico y gremial, cuya misión es el mejoramiento de la calidad
+            de vida y el bienestar de la humanidad mediante el avance de las
+            ciencias y de la ingeniería. Promover las mejores prácticas en los
+            lineamientos, planes, programas y proyectos de desarrollo en
+            cualquier disciplina de la Ingeniería. Y por ultimo, Propender por
+            el bienestar laboral de sus asociados facilitando la búsqueda de
+            oportunidades de empleo acorde con sus perfiles profesionales.
+          </p>
+        </div>
+        <div className="col-md-6">
+          <h4 className="titulo-parrafo-homePage">Objetivos</h4>
+          <p className="parrafo">
+            <ul>
+              <ol>
+                *Luchar por la defensa y el mejoramiento de la profesión y por
+                la dignificación del ingeniero.
+              </ol>
+              <ol>
+                * Asesorar a las entidades del Estado Colombiano que así lo
+                requieran.
+              </ol>
+              <ol>
+                * Fomentar la investigación y el desarrollo de la Ingeniería en
+                todas sus especialidades y su interrelación con otras
+                profesiones.
+              </ol>
+              <ol>
+                * Propender por el desarrollo sostenible en todas las
+                actividades de la ingeniería.
+              </ol>
+            </ul>
+          </p>
+        </div>
+      </div>
       {/* debe haber funciones que te redireccion ademas de hacer una hacer un filtro */}
       <section className="reparto">
         <div className="container">
           <div className="row">
             <div className="title-home-body-filtrosPerfil text-light text-center my-4 fs-1">
-              <h1>¿Qué tipo de ingenieros estás buscando?</h1>
+              <h1 className="titulo-ditribucion">
+                ¿Qué tipo de ingenieros estás buscando?
+              </h1>
             </div>
             <div
               className="col-sm-6 col-md-3"
@@ -273,11 +306,6 @@ function Body() {
                 <div className="card-imgen-home">
                   <img src={imag1} alt=".." />
                 </div>
-
-                <div className="card-body-home">
-                  <h1>Hola soy. </h1>
-                  <p>No quiero perder el placer de despertarme cada día</p>
-                </div>
               </div>
             </div>
             {PrimerCarru.map((element, index) => (
@@ -356,7 +384,7 @@ function Body() {
                   style={{ width: "320px", height: "400px" }}
                   className="img-fluid rounded-3 mb-3 img-thumbnail shadow-sm"
                 />
-                <h3 className="mb-0">Johandris ...</h3>
+                <h3 className="mb-0">Johandris Paola Cabarcas Hernandez</h3>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -396,7 +424,7 @@ function Body() {
                   style={{ width: "320px", height: "400px" }}
                   className="img-fluid rounded-3 mb-3 img-thumbnail shadow-sm"
                 />
-                <h3 className="mb-0">Elias ...</h3>
+                <h3 className="mb-0">Eliasib David Valera Castellar</h3>
                 <span className="small text-uppercase text-muted">
                   CEO - Founder
                 </span>
@@ -436,8 +464,8 @@ function Body() {
           <div className="col-sm-6">
             <div className="proyecto" onClick={(e) => goProyetos()}>
               <div className="opacidad">
-                <h1>Proyectos</h1>
-                <p>Vamos echale un vistazo a todos nuestros colaboradores</p>
+                <h1>Perfiles</h1>
+                <p>Vamos echale un vistazo a todos nuestros ingenieros</p>
               </div>
             </div>
           </div>

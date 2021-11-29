@@ -102,7 +102,7 @@ export default function RegisterPage() {
       <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-black">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Registro
+            Home
           </a>
         </div>
       </nav>
@@ -113,12 +113,12 @@ export default function RegisterPage() {
           </Link>
         </div>
       </nav> */}
-      <form>
-        <div className="container mt-5">
-          {/* <input type="text" value={text} placeholder="nombre"></input>
+      {/* <form>
+        <div className="container mt-5"> */}
+      {/* <input type="text" value={text} placeholder="nombre"></input>
           <input type="text" value="" placeholder="correo"></input> */}
-        </div>
-      </form>
+      {/* </div>
+      </form> */}
 
       {/* Registros forma */}
 
@@ -164,7 +164,9 @@ export default function RegisterPage() {
                   <div className="body-cofre ">
                     <div className="row">
                       <div className="col-sm-12 text-center mb-5">
-                        <i className="fas fa-portrait fa-10x"></i>
+                        <div className="icono-UpdatePhoto">
+                          <i className="fas fa-portrait fa-10x"></i>
+                        </div>
                       </div>
                       <div className="col-sm-11 mb-4 ">
                         <input

@@ -91,7 +91,7 @@ const FiltroProyectos = () => {
   return (
     <Fragment>
       <nav className="navbar navbar-dark" style={{ backgroundColor: "black" }}>
-        <div className="container">
+        <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             {"Ingeniera " + nombreInge}
           </Link>

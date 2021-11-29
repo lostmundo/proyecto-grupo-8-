@@ -7,7 +7,6 @@ import "./proyectos.css";
 
 const Proyectos = () => {
   const [usuario, setusuario] = useState([]);
-  const [role, setrole] = useState("ingeniero");
   const [buscarIng, setbuscarIng] = useState("");
   const [userValidar, setuserValidar] = useState("");
 
@@ -59,7 +58,7 @@ const Proyectos = () => {
   const singOut = () => {
     toastMixin.fire({
       animation: true,
-      title: "Signed in Successfully",
+      title: "Saliendo de Sesión",
     });
     sessionStorage.clear();
     window.location.replace("/");
@@ -67,10 +66,7 @@ const Proyectos = () => {
   const obtenerAll = async (role) => {
     const respuesta = await Axios.get("/engineer-all");
     const obtencion = respuesta.data.engineerAll;
-
-    // console.log(respuesta.data.engineerAll);
     setusuario(obtencion);
-    // usuarios.push(respuesta.data);
   };
   useEffect(() => {
     validarUsuario();
@@ -80,13 +76,13 @@ const Proyectos = () => {
   return (
     <Fragment>
       <nav className="navbar navbar-dark" style={{ backgroundColor: "black" }}>
-        <div className="container d-flex ">
-          <Link to="/" className="navbar-brand me-auto">
-            Proyectos
+        <div className="container-fluid ">
+          <Link to="/" className="navbar-brand ">
+            Home
           </Link>
           {userValidar ? (
             <>
-              <form className="d-flex mx-4 w-25">
+              <form className="d-flex mx-4 ">
                 <input
                   className="form-control me-2 bg-black text-light rounded-pill"
                   type="search"
@@ -103,6 +99,7 @@ const Proyectos = () => {
                   Search
                 </button>
               </form>
+
               <button
                 className="singOut-navbar "
                 aria-current="page"
@@ -154,32 +151,6 @@ const Proyectos = () => {
                 </div>
               </div>
             </div>
-            // <div key={index} className="col">
-            //   <div className="card">
-            //     <div className="imagen d-flex justify-content-center">
-            //       <img
-            //         src={"http://localhost:9000/" + item.img}
-            //         className="card-img-top-proyectos"
-            //         alt="..."
-            //         style={{ height: "300px" }}
-            //       />
-            //     </div>
-            //     <div className="card-body-proyectos">
-            //       <h5 className="card-title-proyectos">{item.firstname}</h5>
-            //       <p className="card-text-proyectos">{item.introduccion}</p>
-            //     </div>
-            //     <div className="col-4 my-3 mx-4">
-            //       <button
-            //         className="btn btn-warning"
-            //         type="button"
-            //         onClick={(e) => irse(item._id)}
-            //         to="/presentacion"
-            //       >
-            //         Más información
-            //       </button>
-            //     </div>
-            //   </div>
-            // </div>
           ))}
         </div>
       </div>

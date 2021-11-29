@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   width: 800px;
-  height: 545px;
+  height: auto;
   background-color: black;
 }
 .contenedor-imagen-loginUser {
@@ -39,6 +39,7 @@
   font-size: 15px;
   margin-left: 20px;
   position: relative;
+  overflow: hidden;
 }
 .boton-facebok-loginUser:before {
   content: "";
@@ -49,10 +50,15 @@
   height: 100%;
   border-radius: 5rem;
   background: rgba(255, 255, 255, 0.1);
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
+}
+.boton-facebok-loginUser:hover {
+  border: none;
+  color: aquamarine;
 }
 .boton-facebok-loginUser:hover:before {
   width: 100%;
+  border: 2px solid aquamarine;
 }
 /* boton de logueo */
 .boton-login {
@@ -66,7 +72,10 @@
   font-size: 20px;
   margin-left: 20px;
   position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out all;
 }
+
 .boton-login:before {
   content: "";
   position: absolute;
@@ -76,8 +85,50 @@
   height: 100%;
   border-radius: 5rem;
   background: rgba(255, 255, 255, 0.1);
-  transition: all 0.5s ease;
+  transition: 0.5s ease-in-out all;
+}
+.boton-login:hover {
+  color: rgb(233, 11, 11);
 }
 .boton-login:hover:before {
   width: 100%;
+  border: 2px solid rgb(248, 0, 0);
+  transition: 0.3s ease-in-out all;
+}
+
+/* login icono */
+.icono-loginUser {
+  position: relative;
+  transition: 0.9s ease-in-out all;
+  overflow: hidden;
+  opacity: 1;
+}
+.icono-loginUser::after {
+  content: "";
+  height: 100%;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: -130px;
+  background: #ffffff;
+  -webkit-transform: skew(40deg);
+  -moz-transform: skew(40deg);
+  -ms-transform: skew(40deg);
+  -o-transform: skew(40deg);
+  transform: skew(40deg);
+  transition: 0.4s ease-in-out all;
+  opacity: 1;
+  box-shadow: 0px 0px 30px 10px rgb(209, 203, 203);
+}
+.icono-loginUser .fas {
+  transition: 0.9s ease-in all;
+}
+.icono-loginUser .fas:hover {
+  color: #ffffff;
+  transition: 0.9s ease-in all;
+}
+.icono-loginUser:hover::after {
+  left: 498px;
+  transition: 0.4s ease-in-out all;
+  opacity: 0.5;
 }
