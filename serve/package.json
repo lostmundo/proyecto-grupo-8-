@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "devbabel": "nodemon server.js --exec babel-node",
-    "start": "babel-node serve.js --exec"
+    "start": "babel-node server.js --exec"
   },
   "keywords": [],
   "author": "",

@@ -158,50 +158,6 @@ const LoginUser = () => {
           </div>
         </div>
       </div>
-
-      {/* parte para borrar */}
-      {/* <div className="container m-5 d-flex justify-content-center">
-        <div className="row">
-          <div className="col-12">
-            <div className="card">
-              <div className=" container text-center fa-7x">
-                <i className=" fas fa-user"></i>
-              </div>
-              <div className="card-header text-center">
-                <h1>Login</h1>
-              </div>
-              <div className="card-body">
-                <form onSubmit={userLogin} id="Logueate">
-                  <div className="form-group">
-                    <label>Fistname</label>
-                    <input
-                      id="Fistname"
-                      type="text"
-                      className="form-control"
-                      required
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label> password</label>
-                    <input
-                      id="password"
-                      type="password"
-                      className="form-control"
-                      required
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <input
-                    type="submit"
-                    className="btn btn-primary btn-block mt-3"
-                  />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </Fragment>
   );
 };

@@ -60,16 +60,6 @@ const Presentacion = () => {
         </div>
       </nav>
       <BodyPresentacion engi={engi} />
-      {/* {engi.map((item, index) => (
-        <div key={index} className="col">
-          <div className="card">
-            <div className="card-header">
-              <h1>{item.firstname}</h1>
-              <p>{item.lastname}</p>
-            </div>
-          </div>
-        </div>
-      ))} */}
     </Fragment>
   );
 };

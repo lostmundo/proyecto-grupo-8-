@@ -94,10 +94,6 @@ const Cuenta = () => {
       });
       document.getElementById("form-updatUser-info").reset();
     }
-
-    // if (UpdateInfo) {
-    // } else {
-    // }
   };
 
   const comprobarUsuario = (usuario) => {
@@ -118,15 +114,7 @@ const Cuenta = () => {
     window.location.replace("/");
   };
 
-  // console.log(firstname);
-  // console.log(usuario);
-  // console.log(nombre);
-  // console.log(user);
-
   useEffect(() => {
-    // setfirstname(nombre);
-    // setlastname(apellido);
-
     comprobarUsuario(usuario);
     setNombreuser(nombre);
     setApellidouser(apellido);
@@ -204,7 +192,10 @@ const Cuenta = () => {
                   <div className=" col-md-6 col-sm-12">
                     <div className="imag-cuenta">
                       <img
-                        src={"http://localhost:9000/" + ImagemPerfil}
+                        src={
+                          "https://app-engineertool.herokuapp.com/" +
+                          ImagemPerfil
+                        }
                         alt="..."
                       ></img>
                     </div>
@@ -435,7 +426,9 @@ const Cuenta = () => {
               <div className=" col-md-6 col-sm-12">
                 <div className="imag-cuenta">
                   <img
-                    src={"http://localhost:9000/" + ImagemPerfil}
+                    src={
+                      "https://app-engineertool.herokuapp.com/" + ImagemPerfil
+                    }
                     alt="..."
                   ></img>
                 </div>
@@ -586,178 +579,6 @@ const Cuenta = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="container m-5 ">
-        <div className="container">
-          <div className="card ">
-            <div className=" card-body w-auto col-8 ">
-              <form onSubmit={userHold}>
-                <div className="from-group">
-                  <label>Nombre</label>
-                  <input
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    placeholder={nombre}
-                    onChange={(e) => setfirstname(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Apellido</label>
-                  <input
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    placeholder={apellido}
-                    onChange={(e) => setlastname(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Email</label>
-                  <input
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    onChange={(e) => setemail(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Telefono</label>
-                  <input
-                    className="form-control col-12"
-                    type="text"
-                    onChange={(e) => settelefono(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Idiomas</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "100px" }}
-                    placeholder="los idiomas que manejas"
-                    onChange={(e) => setidiomas(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Referencias</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "150px" }}
-                    placeholder="Nombre de lugares de referencia o personas que te referencian
-                    
-                    Sebastian mosquera
-                    Jefe de Company Engenery
-                    contacto: sebasEs200@hotmail"
-                    onChange={(e) => setreferencias(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Talento</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "100px" }}
-                    placeholder="Describe las habilidades y fortalezas en una descripcion "
-                    onChange={(e) => settalento(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Introduccion</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "150px" }}
-                    placeholder="haz una breve introduccion acerca de tu vida"
-                    onChange={(e) => setintroduccion(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Experiencia</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "150px" }}
-                    placeholder="haz una descripcion de tu experiencia en el campo"
-                    onChange={(e) => setexperiencia(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Educación</label>
-                  <textarea
-                    className="form-control col-12"
-                    type="text"
-                    required
-                    style={{ height: "250px" }}
-                    placeholder="Por favor escriba la información acerca de su trayectoria en la educación;
-                    
-                    ejemplo:
-                    
-                    Bachiller
-                    GranColombo 2010-2020
-                    
-                    Pregrado: ingeniera indrustrial 
-                    Universidad Antioquia 2021-2023
-                    
-                    Posgrado: mecanica cuantica
-                    Universidad Oxford 2040-2044"
-                    onChange={(e) => seteducacion(e.target.value)}
-                  />
-                </div>
-                <div className="from-group">
-                  <label>Profesión</label>
-                  <input
-                    className="form-control col-12"
-                    type="text"
-                    placeholder="escribe tu profesión"
-                    required
-                    onChange={(e) => setprofesion(e.target.value)}
-                  />
-                </div>
-                <input
-                  type="submit"
-                  className="btn btn-primary btn-block mt-3"
-                />
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="from-group col-sm-6 my-2">
-                      <label>Nombre</label>
-                      <input
-                        className="form-control bg-dark border border-dark border-1 text-light"
-                        type="text"
-                        required
-                        placeholder={nombre}
-                        onChange={(e) => setfirstname(e.target.value)}
-                      />
-                    </div>
-                    <div className="from-group col-sm-6 my-2">
-                      <label>Apellido</label>
-                      <input
-                        className="form-control bg-dark border border-dark border-1 text-light"
-                        type="text"
-                        required
-                        placeholder={apellido}
-                        onChange={(e) => setlastname(e.target.value)}
-                      />
-                    </div>
-                    <div className="from-group col-sm-6">
-                      <label>Email</label>
-                      <input
-                        className="form-control bg-dark border border-dark border-1 text-light my-2"
-                        type="text"
-                        placeholder="@.com"
-                        onChange={(e) => setemail(e.target.value)}
-                      />
-                    </div> */}
     </Fragment>
   );
 };

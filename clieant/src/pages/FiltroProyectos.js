@@ -63,14 +63,10 @@ const FiltroProyectos = () => {
   const obtenerIngenieros = async () => {
     const filtroIng = sessionStorage.getItem("filtroProfesion");
     setnombreInge(filtroIng);
-    // const profesion = { ingenieria: filtroIng };
+
     const respuesta = await Axios.get("/enginnerProfession/" + filtroIng);
     const engineers = respuesta.data.ProfessionEngineer;
     setingenieros(engineers);
-    // console.log(engineers);
-    // for (const elementos of engineers) {
-    //   setingenieros((ingenieros) => [elementos, ...ingenieros]);
-    // }
   };
   // obtener filtro de ingenieros
 
@@ -136,7 +132,7 @@ const FiltroProyectos = () => {
             <div key={index} className="col-sm-6 d-flex justify-content-center">
               <div className="card-proyectos">
                 <img
-                  src={"http://localhost:9000/" + item.img}
+                  src={"https://app-engineertool.herokuapp.com/" + item.img}
                   className="card-img-top-proyectos"
                   alt="..."
                 />

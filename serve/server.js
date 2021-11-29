@@ -29,6 +29,8 @@ app.use(require("./routes/User"));
 app.use(require("./routes/img"));
 app.use(require("./routes/mensaje"));
 
-app.listen(9000, () => {
-  console.log(" server running", "http://localhost:" + 9000);
+app.set("puerto", process.env.PORT || 3000);
+
+app.listen(app.get("puerto"), function () {
+  console.log("app listening on por " + app.get("puerto"));
 });

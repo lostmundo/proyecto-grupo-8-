@@ -8,8 +8,6 @@ import imag4 from "./img/Elias.jpeg";
 import "./body.css";
 
 function Body() {
-  const iconos = [{}];
-
   const [PrimerCarru, setPrimerCarrusel] = useState([]);
 
   const getProfession = async (profesion) => {
@@ -22,18 +20,7 @@ function Body() {
     const getRes = res.data.engineerHome;
     for (const elements of getRes) {
       setPrimerCarrusel((PrimerCarru) => [elements, ...PrimerCarru]);
-      console.log(PrimerCarru);
     }
-    //   getRes.map((elemento) => {
-    //     console.log(elemento);
-    //     setPrimerCarrusel([elemento, ...PrimerCarrus]);
-    //   });
-    //   console.log(PrimerCarrus);
-    // };
-
-    // const newCarrus = [...PrimerCarrus];
-    // newCarrus.push(getRes);
-    // console.log(newCarrus);
   };
 
   const goProyetos = () => {
@@ -313,7 +300,9 @@ function Body() {
                 <div className="card-present-home">
                   <div className="card-imgen-homen">
                     <img
-                      src={"http://localhost:9000/" + element.img}
+                      src={
+                        "https://app-engineertool.herokuapp.com/" + element.img
+                      }
                       alt=".."
                     />
                   </div>
@@ -330,10 +319,6 @@ function Body() {
       </section>
 
       <section className="person">
-        {/* <div className="card">
-          <div className="card-header"></div>
-          <div className="card-body"></div>
-        </div> */}
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col-sm-12 col-md-6 col-lg-4">
