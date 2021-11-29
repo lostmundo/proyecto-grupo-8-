@@ -132,7 +132,9 @@ const FiltroProyectos = () => {
             <div key={index} className="col-sm-6 d-flex justify-content-center">
               <div className="card-proyectos">
                 <img
-                  src={"https://app-engineertool.herokuapp.com/" + item.img}
+                  src={
+                    "https://app-backendengineertool.herokuapp.com/" + item.img
+                  }
                   className="card-img-top-proyectos"
                   alt="..."
                 />

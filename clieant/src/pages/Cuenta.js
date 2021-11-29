@@ -193,7 +193,7 @@ const Cuenta = () => {
                     <div className="imag-cuenta">
                       <img
                         src={
-                          "https://app-engineertool.herokuapp.com/" +
+                          "https://app-backendengineertool.herokuapp.com/" +
                           ImagemPerfil
                         }
                         alt="..."
@@ -427,7 +427,8 @@ const Cuenta = () => {
                 <div className="imag-cuenta">
                   <img
                     src={
-                      "https://app-engineertool.herokuapp.com/" + ImagemPerfil
+                      "https://app-backendengineertool.herokuapp.com/" +
+                      ImagemPerfil
                     }
                     alt="..."
                   ></img>

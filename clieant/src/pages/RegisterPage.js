@@ -42,7 +42,7 @@ export default function RegisterPage() {
       const formdata = new FormData();
       formdata.append("image", file);
 
-      fetch("http://localhost:9000/images/post", {
+      fetch("https://app-backendengineertool.herokuapp.com/images/post", {
         method: "POST",
         body: formdata,
       })
