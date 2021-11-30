@@ -19,7 +19,7 @@ export default function RegisterPage() {
     setFile(e.target.files[0]);
   };
 
-  const sendHandler = () => {
+  const sendHandler = async () => {
     if (!file) {
       Swal.fire({
         toast: true,
@@ -38,19 +38,18 @@ export default function RegisterPage() {
       return;
     } else {
       setPasar(false);
+      const CLOUDINARY_URL =
+        "https://api.cloudinary.com/v1_1/ingineertool/image/upload";
+      const CLOUDINARY_UPLOAD_PRESET = "rwrtnrug";
 
       const formdata = new FormData();
-      formdata.append("image", file);
+      formdata.append("file", file);
+      formdata.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
 
-      fetch("https://app-backendengineertool.herokuapp.com/images/post", {
-        method: "POST",
-        body: formdata,
-      })
-        .then((res) => res.json())
-        .then((res) => setimg(res))
-        .catch((err) => {
-          console.error(err);
-        });
+      const res = await Axios.post(CLOUDINARY_URL, formdata, {
+        headers: { "Content-type": "multipart/form-data" },
+      });
+      setimg(res.data.secure_url);
     }
   };
   const login = async (e) => {

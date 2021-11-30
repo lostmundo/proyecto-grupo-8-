@@ -191,13 +191,7 @@ const Cuenta = () => {
                 <div className="row row-cols-2">
                   <div className=" col-md-6 col-sm-12">
                     <div className="imag-cuenta">
-                      <img
-                        src={
-                          "https://app-backendengineertool.herokuapp.com/" +
-                          ImagemPerfil
-                        }
-                        alt="..."
-                      ></img>
+                      <img src={ImagemPerfil} alt="..."></img>
                     </div>
                   </div>
                   <div className=" col-md-6 col-sm-12">
@@ -425,13 +419,7 @@ const Cuenta = () => {
             <div className="row">
               <div className=" col-md-6 col-sm-12">
                 <div className="imag-cuenta">
-                  <img
-                    src={
-                      "https://app-backendengineertool.herokuapp.com/" +
-                      ImagemPerfil
-                    }
-                    alt="..."
-                  ></img>
+                  <img src={ImagemPerfil} alt="..."></img>
                 </div>
               </div>
               <div className=" col-md-6 col-sm-12">

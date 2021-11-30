@@ -110,10 +110,7 @@ const BodyPresentacion = ({ engi = [] }) => {
                                 <div className="Imagen-capa-presentacion">
                                   <div className="container-fluid d-flex justify-content-center">
                                     <img
-                                      src={
-                                        "https://app-backendengineertool.herokuapp.com/" +
-                                        item.img
-                                      }
+                                      src={item.img}
                                       alt="imagen"
                                       className="img-fluid"
                                     ></img>
@@ -202,10 +199,7 @@ const BodyPresentacion = ({ engi = [] }) => {
                               <div className="imagen-comentario-presentacion">
                                 <div className="container-fluid">
                                   <img
-                                    src={
-                                      "https://app-backendengineertool.herokuapp.com/" +
-                                      item.img
-                                    }
+                                    src={item.img}
                                     className="img-fluid"
                                     alt="..."
                                   />

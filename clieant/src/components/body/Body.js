@@ -299,13 +299,7 @@ function Body() {
               <div className="carousel-item" key={index} data-interval="400">
                 <div className="card-present-home">
                   <div className="card-imgen-homen">
-                    <img
-                      src={
-                        "https://app-backendengineertool.herokuapp.com/" +
-                        element.img
-                      }
-                      alt=".."
-                    />
+                    <img src={element.img} alt=".." />
                   </div>
 
                   <div className="card-body-home">
